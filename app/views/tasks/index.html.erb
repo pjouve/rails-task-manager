@@ -1,8 +1,13 @@
 <h1>My tasks</h1>
 <ul>
-<%@tasks.each do |task| %>
-<li>  <%= task.completed ? "[X]" : "[ ]" %>
-<%= link_to task.title, task_path(task.id) %> </li>
-<% end %>
-</ul>
+  <%@tasks.each do |task| %>
+    <li>  <%= task.completed ? "[X]" : "[ ]" %>
+    <%= link_to task.title, task_path(task.id) %>
+    <%= link_to task_path(task.id), method: :delete,
+      data: { confirm: "Are you sure?" } do %>
+     <i class="fas fa-trash"></i>
+    <% end %>
+    </li>
+  <% end %>
+  </ul>
 <%= link_to "Add a new task", tasks_new_path %>
