@@ -2,3 +2,4 @@
 <p><%= @task.details %></p>
 <p> <%= @task.completed ? "[X] This task as been completed" : "[ ] This task has not been completed yet" %></p>
 <%= link_to "Get back", tasks_path %>
+<%= link_to "Edit this task", task_edit_path %>
